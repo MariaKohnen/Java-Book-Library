@@ -3,6 +3,7 @@ package de.neuefische.javabooklibrary.repository;
 import de.neuefische.javabooklibrary.model.Book;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +40,19 @@ public class BookRepo {
         return book;
     }
 
+    public void deleteAll() {
+        bookRepo = new HashMap<>();
+    }
+
+    public List<Book> getBookByName(String title) {
+        List<Book> allBooks = List.copyOf(bookRepo.values());
+        List<Book> bookListWithName = new ArrayList<>();
+        for (Book actualBook: allBooks) {
+            if (actualBook.getTitle().equals(title)) {
+                bookListWithName.add(actualBook);
+            }
+        } return bookListWithName;
+    }
 }
 
     /*

@@ -36,4 +36,8 @@ public class BookService {
     public Book updateTitleOfBook(Book book) {
         return bookRepo.updateTitleOfBook(book);
     }
+
+    public List<Book> getBookByName(String title) {
+        return bookRepo.getBookByName(title);
+    }
 }

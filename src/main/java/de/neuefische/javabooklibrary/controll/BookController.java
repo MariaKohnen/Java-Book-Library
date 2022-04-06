@@ -33,7 +33,7 @@ public class BookController {
         return bookService.addBook(book);
     }
 
-    @DeleteMapping(value = "{isbn}")
+    @DeleteMapping(path = "{isbn}")
     public Book deleteBook(@PathVariable String isbn) {
         return bookService.deleteBook(isbn);
     }
@@ -41,6 +41,11 @@ public class BookController {
     @PutMapping("/updateBook")
     public Book updateTitleOfBook(@RequestBody Book book) {
         return bookService.updateTitleOfBook(book);
+    }
+
+    @GetMapping("/byName")
+    public List<Book> getBookByName(@RequestParam String title) {
+        return bookService.getBookByName(title);
     }
 
 }
